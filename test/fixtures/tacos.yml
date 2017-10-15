@@ -1,13 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
+  name: De Barbacoa
   spicy: false
-  double_tortilla: false
-  meat: MyString
+  double_tortilla: true
+  meat: Seasoned pork
 
 two:
-  name: MyString
+  name: De Labio
   spicy: false
+  double_tortilla: true
+  meat: Beef Lips
+
+three:
+  name: De Adobada
+  spicy: true
   double_tortilla: false
-  meat: MyString
+  meat: Marinated Pork

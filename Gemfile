@@ -17,6 +17,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "minitest-rails"
   gem "binding_of_caller"
+  gem "minitest-rails-capybara"
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
