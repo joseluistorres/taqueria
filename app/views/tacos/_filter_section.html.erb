@@ -7,8 +7,8 @@
   <div class="field">
     <table class="grid-table">
       <%= f.input :name %>
-      <%= f.input :spicy, collection: ["All", true, false], selected: object[:spicy] %>
-      <%= f.input :meat, collection: ["All", "Pork", "Beef", "Chicken"], selected: object[:meat] %>
+      <%= f.input :spicy, collection: Tacos::Filterer.options_for_spicyness_select, selected: object[:spicy] %>
+      <%= f.input :meat, collection: Tacos::Filterer.options_for_meat_select, selected: object[:meat] %>
     </table>
   </div>
 

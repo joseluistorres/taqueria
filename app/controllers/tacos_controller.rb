@@ -4,13 +4,13 @@ class TacosController < ApplicationController
   # GET /tacos
   # GET /tacos.json
   def index
-    @tacos = Taco.all
+    base_arel = Taco.all
 
-    if filterer_params
-       @tacos = @tacos.for_name(filterer_params[:name]) if filterer_params[:name].present?
-       @tacos = @tacos.for_spicy(filterer_params[:spicy]) if filterer_params[:spicy].present? && Taco::SPICYNESS.include?(filterer_params[:spicy])
-       @tacos = @tacos.for_meat(filterer_params[:meat]) if filterer_params[:meat].present? && Taco::MEATS.include?(filterer_params[:meat])
-    end
+    filterer = Tacos::Filterer.new(
+            filterer_params,
+            base_arel: base_arel)
+    @tacos = filterer.tacos
+
   end
 
   # GET /tacos/1
@@ -82,6 +82,6 @@ class TacosController < ApplicationController
     end
 
     def taco_params
-      params.require(:taco).permit(:name, :spicy, :double_tortilla, :meat)
+      params.require(:taco).permit(Tacos::Filterer::FILTER_ATTRIBUTES)
     end
 end
