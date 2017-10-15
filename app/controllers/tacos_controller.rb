@@ -9,6 +9,7 @@ class TacosController < ApplicationController
     if filterer_params
        @tacos = @tacos.where("name like ?", "%#{filterer_params[:name]}%") if filterer_params[:name].present?
        @tacos = @tacos.where(spicy: filterer_params[:spicy]) if filterer_params[:spicy].present? && ["true", "false"].include?(filterer_params[:spicy])
+       @tacos = @tacos.where("meat like ?", "%#{filterer_params[:meat]}%") if filterer_params[:meat].present? && ["Pork", "Beef", "Chicken"].include?(filterer_params[:meat])
     end
   end
 
@@ -77,7 +78,7 @@ class TacosController < ApplicationController
         return
       end
 
-      params.require(:filter).permit(:name, :spicy)
+      params.require(:filter).permit(:name, :spicy, :meat)
     end
 
     def taco_params

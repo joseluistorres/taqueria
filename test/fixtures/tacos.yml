@@ -1,17 +1,17 @@
 one:
-  name: De Barbacoa
+  name: "De Barbacoa"
   spicy: false
   double_tortilla: true
-  meat: Seasoned pork
+  meat: "Pork"
 
 two:
-  name: De Labio
+  name: "De Labio"
   spicy: false
   double_tortilla: true
-  meat: Beef Lips
+  meat: "Beef Lips"
 
 three:
-  name: De Adobada
+  name: "De Adobada"
   spicy: true
   double_tortilla: false
-  meat: Marinated Pork
+  meat: "Marinated Pork"
