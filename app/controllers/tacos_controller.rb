@@ -7,9 +7,9 @@ class TacosController < ApplicationController
     @tacos = Taco.all
 
     if filterer_params
-       @tacos = @tacos.where("name like ?", "%#{filterer_params[:name]}%") if filterer_params[:name].present?
-       @tacos = @tacos.where(spicy: filterer_params[:spicy]) if filterer_params[:spicy].present? && ["true", "false"].include?(filterer_params[:spicy])
-       @tacos = @tacos.where("meat like ?", "%#{filterer_params[:meat]}%") if filterer_params[:meat].present? && ["Pork", "Beef", "Chicken"].include?(filterer_params[:meat])
+       @tacos = @tacos.for_name(filterer_params[:name]) if filterer_params[:name].present?
+       @tacos = @tacos.for_spicy(filterer_params[:spicy]) if filterer_params[:spicy].present? && Taco::SPICYNESS.include?(filterer_params[:spicy])
+       @tacos = @tacos.for_meat(filterer_params[:meat]) if filterer_params[:meat].present? && Taco::MEATS.include?(filterer_params[:meat])
     end
   end
 
