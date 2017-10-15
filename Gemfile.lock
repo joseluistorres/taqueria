@@ -48,6 +48,8 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap (4.0.0.beta)
       autoprefixer-rails (>= 6.0.3)
       popper_js (~> 1.11.1)
@@ -74,6 +76,7 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.2)
     daemons (1.2.4)
+    debug_inspector (0.0.3)
     erubi (1.7.0)
     eventmachine (1.2.5)
     execjs (2.7.0)
@@ -112,7 +115,6 @@ GEM
     pg (0.21.0)
     popper_js (1.11.1)
     public_suffix (3.0.0)
-    puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -160,6 +162,9 @@ GEM
     selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -202,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  binding_of_caller
   bootstrap (~> 4.0.0.alpha6)
   byebug
   capybara (~> 2.13)
@@ -212,11 +218,11 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   minitest-rails
   pg
-  puma (~> 3.7)
   rails (~> 5.1.4)
   rails_layout
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   thin

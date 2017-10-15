@@ -5,6 +5,11 @@ class TacosController < ApplicationController
   # GET /tacos.json
   def index
     @tacos = Taco.all
+
+    if filterer_params
+       @tacos = @tacos.where("name like ?", "%#{filterer_params[:name]}%") if filterer_params[:name].present?
+       @tacos = @tacos.where(spicy: filterer_params[:spicy]) if filterer_params[:spicy].present? && [true, false].include?(filterer_params[:spicy])
+    end
   end
 
   # GET /tacos/1
@@ -67,7 +72,14 @@ class TacosController < ApplicationController
       @taco = Taco.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def filterer_params
+      unless params.key?(:filter)
+        return
+      end
+
+      params.require(:filter).permit(:name, :spicy)
+    end
+
     def taco_params
       params.require(:taco).permit(:name, :spicy, :double_tortilla, :meat)
     end

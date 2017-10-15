@@ -1,0 +1,17 @@
+<%= simple_form_for :filter,
+                          url: tacos_path,
+                          method: :get,
+                          html: { class: 'form-horizontal' },
+                          defaults: { required: false } do |f| %>
+
+  <div class="field">
+    <table class="grid-table">
+      <%= f.input :name %>
+      <%= f.input :spicy, collection: [true, false, "All"], selected: object[:spicy] %>
+    </table>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Filter", class: "btn-info" %>
+  </div>
+<% end %>
