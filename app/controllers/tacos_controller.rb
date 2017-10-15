@@ -8,7 +8,7 @@ class TacosController < ApplicationController
 
     if filterer_params
        @tacos = @tacos.where("name like ?", "%#{filterer_params[:name]}%") if filterer_params[:name].present?
-       @tacos = @tacos.where(spicy: filterer_params[:spicy]) if filterer_params[:spicy].present? && [true, false].include?(filterer_params[:spicy])
+       @tacos = @tacos.where(spicy: filterer_params[:spicy]) if filterer_params[:spicy].present? && ["true", "false"].include?(filterer_params[:spicy])
     end
   end
 
